@@ -1591,14 +1591,14 @@ Denna transaktion låses upp vid block %llu, om ungefär %s dagar (förutsatt en
         <location filename="../src/simplewallet/simplewallet.cpp" line="1636"/>
         <source>account
   account new &lt;label text with white spaces allowed&gt;
-  account switch &lt;index&gt; 
+  account switch &lt;index&gt;
   account label &lt;index> &lt;label text with white spaces allowed&gt;
   account tag &lt;tag_name> &lt;account_index_1> [&lt;account_index_2&gt; ...]
   account untag &lt;account_index_1> [&lt;account_index_2&gt; ...]
   account tag_description &lt;tag_name> &lt;description&gt;</source>
         <translation>account
   account new &lt;etikettext med blanktecken tillåtna&gt;
-  account switch &lt;index&gt; 
+  account switch &lt;index&gt;
   account label &lt;index&gt; &lt;etikettext med blanktecken tillåtna&gt;
   account tag &lt;taggnamn> &lt;kontoindex_1> [&lt;kontoindex_2&gt; …]
   account untag &lt;kontoindex_1> [&lt;kontoindex_2&gt; …]
@@ -2205,8 +2205,8 @@ Annars bevisar du reserven för det minsta möjliga belopp över &lt;belopp&gt; 
 To start synchronizing with the daemon, use the &quot;refresh&quot; command.
 Use the &quot;help&quot; command to see the list of available commands.
 Use &quot;help &lt;command>&quot; to see a command&apos;s documentation.
-Always use the &quot;exit&quot; command when closing monero-wallet-cli to save 
-your current session&apos;s state. Otherwise, you might need to synchronize 
+Always use the &quot;exit&quot; command when closing monero-wallet-cli to save
+your current session&apos;s state. Otherwise, you might need to synchronize
 your wallet again (your wallet keys are NOT at risk in any case).
 </source>
         <translation>Din plånbok har skapats!
@@ -3809,8 +3809,8 @@ daemon för att fungera korrekt.</translation>
     </message>
     <message>
         <location filename="../src/wallet/wallet2.cpp" line="117"/>
-        <source>Use daemon instance at port &lt;arg&gt; instead of 18081</source>
-        <translation>Använd daemonen på port &lt;arg&gt; istället för 18081</translation>
+        <source>Use daemon instance at port &lt;arg&gt; instead of 18091</source>
+        <translation>Använd daemonen på port &lt;arg&gt; istället för 18091</translation>
     </message>
     <message>
         <location filename="../src/wallet/wallet2.cpp" line="119"/>

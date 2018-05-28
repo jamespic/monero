@@ -1591,14 +1591,14 @@ Cette transaction sera déverrouillée au bloc %llu, dans approximativement %s j
         <location filename="../src/simplewallet/simplewallet.cpp" line="1636"/>
         <source>account
   account new &lt;label text with white spaces allowed&gt;
-  account switch &lt;index&gt; 
+  account switch &lt;index&gt;
   account label &lt;index&gt; &lt;label text with white spaces allowed&gt;
   account tag &lt;tag_name&gt; &lt;account_index_1&gt; [&lt;account_index_2&gt; ...]
   account untag &lt;account_index_1&gt; [&lt;account_index_2&gt; ...]
   account tag_description &lt;tag_name&gt; &lt;description&gt;</source>
         <translation>account
   account new &lt;texte étiquette avec espaces autorisés&gt;
-  account switch &lt;index&gt; 
+  account switch &lt;index&gt;
   account label &lt;index&gt; &lt;texte étiquette avec espaces autorisés&gt;
   account tag &lt;mot_clé&gt; &lt;index_compte_1&gt; [&lt;index_compte_2&gt; ...]
   account untag &lt;index_compte_1&gt; [&lt;index_compte_2&gt; ...]
@@ -2205,16 +2205,16 @@ Sinon, vous prouvez le plus petit solde supérieur à &lt;montant&gt; dans votre
 To start synchronizing with the daemon, use the &quot;refresh&quot; command.
 Use the &quot;help&quot; command to see the list of available commands.
 Use &quot;help &lt;command&gt;&quot; to see a command&apos;s documentation.
-Always use the &quot;exit&quot; command when closing monero-wallet-cli to save 
-your current session&apos;s state. Otherwise, you might need to synchronize 
+Always use the &quot;exit&quot; command when closing monero-wallet-cli to save
+your current session&apos;s state. Otherwise, you might need to synchronize
 your wallet again (your wallet keys are NOT at risk in any case).
 </source>
         <translation>Votre portefeuille a été généré !
 Pour commencer la synchronisation avec le démon, utilisez la commande &quot;refresh&quot;.
 Utilisez la commande &quot;help&quot; pour voir la liste des commandes disponibles.
 Utilisez &quot;help &lt;commande&gt;&quot; pour voir la documentation d&apos;une commande.
-Utilisez toujours la commande &quot;exit&quot; pour fermer monero-wallet-cli pour sauvegarder 
-l&apos;état de votre session. Sinon, vous pourriez avoir besoin de synchroniser 
+Utilisez toujours la commande &quot;exit&quot; pour fermer monero-wallet-cli pour sauvegarder
+l&apos;état de votre session. Sinon, vous pourriez avoir besoin de synchroniser
 votre portefeuille à nouveau (mais les clés de votre portefeuille ne risquent rien).
 </translation>
     </message>
@@ -3076,7 +3076,7 @@ Attention : Certaines clés d&apos;entrées étant dépensées sont issues de <
         <translation>usage :
   account
   account new &lt;texte étiquette avec espaces autorisés&gt;
-  account switch &lt;index&gt; 
+  account switch &lt;index&gt;
   account label &lt;index&gt; &lt;texte étiquette avec espaces autorisés&gt;
   account tag &lt;mot_clé&gt; &lt;index_compte_1&gt; [&lt;index_compte_2&gt; ...]
   account untag &lt;index_compte_1&gt; [&lt;index_compte_2&gt; ...]
@@ -3810,8 +3810,8 @@ connecter à un démon monero pour fonctionner correctement.</translation>
     </message>
     <message>
         <location filename="../src/wallet/wallet2.cpp" line="117"/>
-        <source>Use daemon instance at port &lt;arg&gt; instead of 18081</source>
-        <translation>Utiliser l&apos;instance de démon située au port &lt;arg&gt; au lieu de 18081</translation>
+        <source>Use daemon instance at port &lt;arg&gt; instead of 18091</source>
+        <translation>Utiliser l&apos;instance de démon située au port &lt;arg&gt; au lieu de 18091</translation>
     </message>
     <message>
         <location filename="../src/wallet/wallet2.cpp" line="119"/>
