@@ -1,4 +1,46 @@
-# Monero
+# Monero Legacy
+
+A project that crudely hacks Monero 0.12 to support the legacy v6 chain -
+the chain used by projects like Monero Classic and Monero Original (despite the
+different names, these projects all use the same chain - anyone who talks about
+4 new coins being created is an idiot).
+
+These projects are shitcoins created by miners who are salty about losing
+mining revenue. The principled thing to do is to ignore them. Unfortunately,
+the cryptocurrency community is not known for their principles, and recklessly
+splitting coins risks the privacy of the network. Monero 0.12 added some
+mitigations for this, but unfortunately they work best when both chains use
+them, and all the shitcoin projects use a forked 0.11 codebase. So for better
+results, I hacked the 0.12 codebase to support the legacy chain, so I could
+split them safely.
+
+I'll add some instructions once I've confirmed it's possible, but the broad
+approach will be:
+
+1. Get an up-to-date blackball list
+2. Make a copy of your existing wallet, for use with the legacy chain
+3. Start a CLI wallet pointing at the legacy wallet file and the legacy chain
+4. Rescan the blockchain
+5. Sweep outputs on the legacy chain, with ring size 6
+6. Save known rings
+7. Start a CLI wallet pointing at the mainnet wallet and chain
+8. Sweep outputs on the main chain - but double check that 6 of the 7 inputs
+   match the transaction on the legacy chain
+
+If you've already split your coins, then the damage is already done. If your
+coins were on an exchange, then you didn't have any privacy to begin with, so
+you don't need to do anything.
+
+It's unclear whether exchanges have "done the right thing" by everyone else -
+several exchanges are offering both XMO and XMC, which suggests they're either
+incompetent or dishonest, so I don't hold out much hope of them splitting
+their coins responsibly - but the blackball database should cover this.
+
+For now, if you want to run this code, you'll need to compile it yourself. But
+I'm hoping to get a public node up, which would mean you'd only need the
+standard Monero wallet.
+
+# Original Monero Readme
 
 Copyright (c) 2014-2018 The Monero Project.   
 Portions Copyright (c) 2012-2013 The Cryptonote developers.
