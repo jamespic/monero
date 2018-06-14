@@ -14,31 +14,63 @@ them, and all the shitcoin projects use a forked 0.11 codebase. So for better
 results, I hacked the 0.12 codebase to support the legacy chain, so I could
 split them safely.
 
-I'll add some instructions once I've confirmed it's possible, but the broad
-approach will be:
+## Splitting Your Monero
 
-1. Get an up-to-date blackball list
-2. Make a copy of your existing wallet, for use with the legacy chain
-3. Start a CLI wallet pointing at the legacy wallet file and the legacy chain
-4. Rescan the blockchain
-5. Sweep outputs on the legacy chain, with ring size 6
-6. Save known rings
-7. Start a CLI wallet pointing at the mainnet wallet and chain
-8. Sweep outputs on the main chain - but double check that 6 of the 7 inputs
-   match the transaction on the legacy chain
+The easiest way to split your Monero is to use the public node I'm running
+on `monero-legacy.duckdns.org:18091` (or `xmrlegacykwdt7bo.onion:18091`). This
+way, you don't have to run any software other than the official Monero client,
+give anyone your private keys, or send Monero to any address but your own.
+The worst I can do is try to deanonymise you. If this is a concern, and you've
+got the technical skills to review the code in this repo, you should run your
+own node.
 
-If you've already split your coins, then the damage is already done. If your
-coins were on an exchange, then you didn't have any privacy to begin with, so
-you don't need to do anything.
+If you haven't made any transactions from your account since the split, then
+you should be able to keep your privacy intact.
 
-It's unclear whether exchanges have "done the right thing" by everyone else -
-several exchanges are offering both XMO and XMC, which suggests they're either
-incompetent or dishonest, so I don't hold out much hope of them splitting
-their coins responsibly - but the blackball database should cover this.
+If you have make transactions, then it may not be possible to retain your
+privacy. You should think very carefully about how badly you want the coins
+from the other chain. These instructions will keep as much of your privacy as
+possible, but that may not be enough.
 
-For now, if you want to run this code, you'll need to compile it yourself. But
-I'm hoping to get a public node up, which would mean you'd only need the
-standard Monero wallet.
+These instructions use the CLI wallet, mostly because I know it better than
+the GUI wallet. They also assume your wallet is in `~/Monero/wallets/james`,
+and you normally connect to a local node. It should be obvious which values to
+change if not.
+
+1. Download and install Monero 0.12.2.0. Don't download Monero Classic, or
+   Monero Original, or any other unofficial Monero fork. You don't need them.
+2. Download the blackball list from
+   [https://s3.amazonaws.com/monero-legacy-blackball/blackballs.gz] and unzip
+   it. If you are running your own legacy node, you can generate this yourself.
+3. Connect to the main chain:
+   `/opt/monero/monero-wallet-cli --wallet-file ~/Monero/wallets/james --daemon-address localhost:18081`.
+4. Import the blackball file `blackball /where/you/unzipped/the/file/blackballs`.
+   This could take a while.
+5. Use `set` to check the current options. If they're not set to these values
+   already, `set segregation-height 1546000`, `set segregate-pre-fork-outputs 1`
+   and `key-reuse-mitigation2 1`.
+6. Type `save_known_rings`. I'm not certain if this is necessary, but it's
+   quick and harmless.
+7. Make a copy of your wallet file - for example, you might
+   `cp ~/Monero/wallets ~/Monero/legacy-wallets`.
+8. Connect to the legacy chain:
+   `/opt/monero/monero-wallet-cli --wallet-file ~/Monero/wallets/james --daemon-address monero-legacy.duckdns.org:18091`
+   or `torsocks /opt/monero/monero-wallet-cli --wallet-file ~/Monero/legacy-wallets/james --daemon-address xmrlegacykwdt7bo.onion:18091`.
+9. Type `rescan_bc`. This could take a while.
+10. If you haven't sent any transactions from the legacy chain since the split,
+    `sweep_all 6 4YoUrAdDrEss`. This transaction has 6 mixins, so shouldn't be
+    replayable on the main chain. Check the transaction looks OK, and that all
+    the inputs are from before block 1564000, then wait for it to confirm.
+11. Type `save_known_rings`.
+12. Reconnect to the main chain:
+    `/opt/monero/monero-wallet-cli --wallet-file ~/Monero/wallets/james --daemon-address localhost:18081`.
+13. Sweep your transactions with `sweep_all 4YoUrAdDrEss`. Each ring should have
+    7 inputs, 6 of which should match the transaction you created on the legacy
+    chain.
+14. Your Monero have now been split, and you can move your coins around safely.
+    If you make any profit, why not contribute some of it to the running costs
+    of the public node? Donations welcome at
+    89QXmMpe4VL7qMo5bYbcGXU36RFgpx9amLUPadRRmQ6LcgLf5uv7t2SZJ1uV24JdjPZwWpftWTNbVe8bKKJQGqWUTxWZHhz
 
 # Original Monero Readme
 
