@@ -46,26 +46,28 @@ change if not.
 3. Connect to the main chain:
    `/opt/monero/monero-wallet-cli --wallet-file ~/Monero/wallets/james --daemon-address localhost:18081`.
 4. Import the blackball file `blackball /where/you/unzipped/the/file/blackballs`.
-   This could take a while.
+   This could take a while. If it's late, this would be a great time to go to
+   bed.
 5. Use `set` to check the current options. If they're not set to these values
    already, `set segregation-height 1546000`, `set segregate-pre-fork-outputs 1`
-   and `key-reuse-mitigation2 1`.
+   and `set key-reuse-mitigation2 1`.
 6. Type `save_known_rings`. I'm not certain if this is necessary, but it's
    quick and harmless.
 7. Make a copy of your wallet file - for example, you might
    `cp ~/Monero/wallets ~/Monero/legacy-wallets`.
 8. Connect to the legacy chain:
-   `/opt/monero/monero-wallet-cli --wallet-file ~/Monero/wallets/james --daemon-address monero-legacy.duckdns.org:18091`
+   `/opt/monero/monero-wallet-cli --wallet-file ~/Monero/legacy-wallets/james --daemon-address monero-legacy.duckdns.org:18091`
    or `torsocks /opt/monero/monero-wallet-cli --wallet-file ~/Monero/legacy-wallets/james --daemon-address xmrlegacykwdt7bo.onion:18091`.
 9. Type `rescan_bc`. This could take a while.
 10. If you haven't sent any transactions from the legacy chain since the split,
     `sweep_all 6 4YoUrAdDrEss`. This transaction has 6 mixins, so shouldn't be
     replayable on the main chain. Check the transaction looks OK, and that all
-    the inputs are from before block 1564000, then wait for it to confirm.
+    the inputs are from before block 1546000, then wait for it to confirm.
 11. Type `save_known_rings`.
 12. Reconnect to the main chain:
     `/opt/monero/monero-wallet-cli --wallet-file ~/Monero/wallets/james --daemon-address localhost:18081`.
-13. Sweep your transactions with `sweep_all 4YoUrAdDrEss`. Each ring should have
+13. If you haven't sent any transactions from the main chain since the split,
+    `sweep_all 4YoUrAdDrEss`. Each ring should have
     7 inputs, 6 of which should match the transaction you created on the legacy
     chain.
 14. Your Monero have now been split, and you can move your coins around safely.
