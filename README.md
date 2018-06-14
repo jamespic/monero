@@ -17,7 +17,8 @@ split them safely.
 ## Splitting Your Monero
 
 The easiest way to split your Monero is to use the public node I'm running
-on `monero-legacy.duckdns.org:18091` (or `xmrlegacykwdt7bo.onion:18091`). This
+on `monero-legacy.duckdns.org:18091` (although I strongly recommend you connect
+via Tor instead, to `xmrlegacykwdt7bo.onion:18091`). This
 way, you don't have to run any software other than the official Monero client,
 give anyone your private keys, or send Monero to any address but your own.
 The worst I can do is try to deanonymise you. If this is a concern, and you've
@@ -27,7 +28,7 @@ own node.
 If you haven't made any transactions from your account since the split, then
 you should be able to keep your privacy intact.
 
-If you have make transactions, then it may not be possible to retain your
+If you have made transactions, then it may not be possible to retain your
 privacy. You should think very carefully about how badly you want the coins
 from the other chain. These instructions will keep as much of your privacy as
 possible, but that may not be enough.
@@ -40,7 +41,7 @@ change if not.
 1. Download and install Monero 0.12.2.0. Don't download Monero Classic, or
    Monero Original, or any other unofficial Monero fork. You don't need them.
 2. Download the blackball list from
-   [https://s3.amazonaws.com/monero-legacy-blackball/blackballs.gz] and unzip
+   https://s3.amazonaws.com/monero-legacy-blackball/blackballs.gz and unzip
    it. If you are running your own legacy node, you can generate this yourself.
 3. Connect to the main chain:
    `/opt/monero/monero-wallet-cli --wallet-file ~/Monero/wallets/james --daemon-address localhost:18081`.
