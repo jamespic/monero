@@ -73,7 +73,7 @@ change if not.
 14. Your Monero have now been split, and you can move your coins around safely.
     If you make any profit, why not contribute some of it to the running costs
     of the public node? Donations welcome at
-    89QXmMpe4VL7qMo5bYbcGXU36RFgpx9amLUPadRRmQ6LcgLf5uv7t2SZJ1uV24JdjPZwWpftWTNbVe8bKKJQGqWUTxWZHhz
+    87JjzCQ8pkLGsErXxkVFVZ4jnzgUJND9J1RZqekZisAbU5dLzftmxNiXLgqN4J76T59Kj4qmS67jtHmr7LcNi15zBpARNBt
 
 # Original Monero Readme
 
